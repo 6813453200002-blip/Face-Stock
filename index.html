@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BodyCare | Internal Requisition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>FaceStock | Facial Skincare Inventory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -16,11 +16,11 @@
         <div class="login-left">
             <div class="login-left-content">
                 <div class="brand-text" style="font-size: 2.5rem; margin-bottom: 8px;">
-                    <h2>Body<span>Care</span></h2>
+                    <h2>Face<span>Stock</span></h2>
                 </div>
-                <h1><div data-lang="title1" style="color: #ffffff; font-weight: 500;">ระบบเบิกจ่ายพัสดุภายใน</div></h1>
+                <h1><div data-lang="title1" style="color: #1C1C1E; font-weight: 600;">ระบบเบิกจ่ายสินค้าภายใน</div></h1>
                 <div class="accent-line" style="margin: 20px 0;"></div>
-                <p style="color: #94a3b8; font-size: 1.1rem;">Internal Requisition Portal</p>
+                <p style="color: #8E8E93; font-size: 1.1rem;">Facial Skincare inventory</p>
             </div>
         </div>
         
@@ -31,14 +31,14 @@
             </div>
 
             <div class="login-box">
-                <div class="brand-logo-login"><i class="fas fa-lock"></i></div>
+                <div class="brand-logo-login"><i class="fas fa-box-open"></i></div>
                 <h2 data-lang="loginHeader" style="margin-bottom: 8px;">เข้าสู่ระบบ</h2>
-                <p class="subtitle" data-lang="loginSub" style="margin-bottom: 24px;">สำหรับพนักงาน BodyCare เท่านั้น</p>
+                <p class="subtitle" data-lang="loginSub" style="margin-bottom: 24px;">สำหรับพนักงาน FaceStock เท่านั้น</p>
                 
                 <form class="login-form" onsubmit="event.preventDefault(); login();">
                     <div style="text-align: left; margin-bottom: 16px;">
-                        <label style="font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; display: block;" data-lang="labelEmail">อีเมลพนักงาน</label>
-                        <input type="email" id="username" placeholder="name@bodycare.com" required autocomplete="email">
+                        <label style="font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; display: block;" data-lang="labelEmail">อีเมลองค์กร</label>
+                        <input type="email" id="username" placeholder="name@facestock.com" required autocomplete="email">
                     </div>
                     <div style="text-align: left; margin-bottom: 24px;">
                         <label style="font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; display: block;" data-lang="labelPass">รหัสผ่าน</label>
@@ -47,11 +47,7 @@
                     <button type="submit" class="btn-login" data-lang="btnLogin">เข้าสู่ระบบ</button>
                 </form>
             </div>
-
-            <div class="login-footer">
-                BodyCare Co., Ltd. © 2026<br>
-                <span style="font-size: 11px; opacity: 0.7;">IT Support: 1111</span>
-            </div>
+            <div class="login-footer">FaceStock Co., Ltd. © 2026<br><span style="font-size: 11px; opacity: 0.7;">IT Support: 1111</span></div>
         </div>
     </div>
 
@@ -59,9 +55,9 @@
     <div id="app-view">
         <aside class="sidebar">
             <div class="sidebar-brand">
-                <i class="fas fa-leaf brand-icon"></i>
+                <i class="fas fa-box-open brand-icon"></i>
                 <div class="brand-text">
-                    <h2>Body<span>Care</span></h2>
+                    <h2>Face<span>Stock</span></h2>
                     <p>Workspace</p>
                 </div>
             </div>
@@ -73,7 +69,7 @@
 
         <main class="main-content">
             <header class="topbar">
-                <h3 class="topbar-title" id="page-title" data-lang="topbarTitle">BodyCare Portal</h3>
+                <h3 class="topbar-title" id="page-title" data-lang="topbarTitle">FaceStock Portal</h3>
                 <div class="header-actions">
                     <div class="lang-toggle position-normal">
                         <div class="lang-btn active" onclick="setLanguage('th')">TH</div>
@@ -90,20 +86,19 @@
             </header>
 
             <section class="content-area">
-                <!-- 🌟 SECTION 1: INVENTORY -->
+                <!-- SECTION 1: INVENTORY -->
                 <div id="sec-inventory" class="view-section">
                     <div class="stats-grid" id="dashboard-widgets"></div>
                     <div class="table-card">
                         <div class="table-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-                            <h2 class="table-title" data-lang="tableTitle">รายการพัสดุในคลัง</h2>
-                            
+                            <h2 class="table-title" data-lang="tableTitle">รายการสินค้าในคลัง</h2>
                             <div style="display: flex; gap: 12px; align-items: center;">
                                 <div style="position: relative;">
-                                    <i class="fas fa-search" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8;"></i>
-                                    <input type="text" id="search-inventory" onkeyup="searchInventory()" placeholder="ค้นหารหัส หรือชื่อพัสดุ..." style="padding: 8px 12px 8px 36px; border: 1px solid #e2e8f0; border-radius: 6px; font-family: 'Kanit', sans-serif; font-size: 14px; outline: none; width: 250px;">
+                                    <i class="fas fa-search" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8;"></i>
+                                    <input type="text" id="search-inventory" onkeyup="searchInventory()" data-lang-placeholder="searchPlaceholder" placeholder="ค้นหารหัส หรือชื่อสินค้า..." style="padding: 10px 12px 10px 38px; border: 1px solid var(--border-light); border-radius: 12px; font-family: 'Kanit', sans-serif; font-size: 14px; outline: none; width: 250px;">
                                 </div>
                                 <button class="btn-primary" id="btn-action-main" onclick="handleMainAction()">
-                                    <i class="fas fa-plus" id="btn-action-icon"></i> <span id="btn-action-text">เพิ่มพัสดุ</span>
+                                    <i class="fas fa-plus" id="btn-action-icon"></i> <span id="btn-action-text">เพิ่มสินค้า</span>
                                 </button>
                             </div>
                         </div>
@@ -114,52 +109,34 @@
                     </div>
                 </div>
 
-                <!-- 🌟 SECTION 2: APPROVALS / HISTORY -->
+                <!-- SECTION 2: APPROVALS / HISTORY -->
                 <div id="sec-approvals" class="view-section" style="display: none;">
                     <div class="table-card">
-                        <div class="table-header">
-                            <h2 class="table-title" data-lang="reqTitle">คำขอเบิกพัสดุ</h2>
-                        </div>
+                        <div class="table-header"><h2 class="table-title" data-lang="reqTitle">คำขอเบิกสินค้า</h2></div>
                         <table id="requests-table">
-                            <thead>
-                                <tr>
-                                    <th data-lang="reqThDate">วันที่</th>
-                                    <th data-lang="reqThUser">ผู้ขอเบิก</th>
-                                    <th data-lang="reqThItem">รายการ</th>
-                                    <th style="text-align: right;" data-lang="reqThQty">จำนวน</th>
-                                    <th style="text-align: center;" data-lang="reqThStatus">สถานะ</th>
-                                    <th style="text-align: right;" data-lang="reqThAction">จัดการ</th>
-                                </tr>
-                            </thead>
+                            <thead></thead>
                             <tbody id="requests-list"></tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- 🌟 SECTION 3: REPORTS -->
+                <!-- SECTION 3: REPORTS -->
                 <div id="sec-reports" class="view-section" style="display: none;">
                     <div class="table-card">
                         <div class="table-header">
                             <h2 class="table-title" data-lang="reportTitle">สรุปการเบิกจ่าย</h2>
-                            <button class="btn-outline" onclick="exportToCSV()" style="border-color: #10b981; color: #10b981;">
-                                <i class="fas fa-file-excel"></i> Export CSV
-                            </button>
+                            <button class="btn-outline" onclick="exportToCSV()"><i class="fas fa-file-excel" style="color: #34C759;"></i> Export CSV</button>
                         </div>
                         <table id="reports-table">
                             <thead>
-                                <tr>
-                                    <th data-lang="thId">รหัส</th>
-                                    <th data-lang="thName">รายการ</th>
-                                    <th style="text-align: right;" data-lang="repThCount">จำนวนครั้ง</th>
-                                    <th style="text-align: right;" data-lang="repThTotal">ปริมาณเบิกออกรวม</th>
-                                </tr>
+                                <tr><th data-lang="thId">รหัส</th><th data-lang="thName">รายการ</th><th style="text-align: right;" data-lang="repThCount">จำนวนครั้ง</th><th style="text-align: right;" data-lang="repThTotal">ปริมาณเบิกออกรวม</th></tr>
                             </thead>
                             <tbody id="reports-list"></tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- 🌟 SECTION 4: USERS MANAGEMENT -->
+                <!-- SECTION 4: USERS MANAGEMENT -->
                 <div id="sec-users" class="view-section" style="display: none;">
                     <div class="table-card">
                         <div class="table-header">
@@ -170,39 +147,52 @@
                         </div>
                         <table id="users-table">
                             <thead>
-                                <tr>
-                                    <th data-lang="userThEmail">อีเมล</th>
-                                    <th data-lang="userThName">ชื่อ-สกุล</th>
-                                    <th data-lang="userThRole">ระดับสิทธิ์</th>
-                                    <th style="text-align: right;" data-lang="userThAction">จัดการ</th>
-                                </tr>
+                                <tr><th data-lang="userThEmail">อีเมล</th><th data-lang="userThName">ชื่อ-สกุล</th><th data-lang="userThRole">ระดับสิทธิ์</th><th style="text-align: right;" data-lang="userThAction">จัดการ</th></tr>
                             </thead>
                             <tbody id="users-list"></tbody>
                         </table>
                     </div>
                 </div>
                 
-                <!-- 🌟 SECTION 5: MY PROFILE -->
+                <!-- SECTION 5: MY PROFILE -->
                 <div id="sec-profile" class="view-section" style="display: none;">
-                    <div class="table-card" style="max-width: 600px; margin: 0 auto; padding: 32px;">
-                        <div style="text-align: center; margin-bottom: 24px;">
-                            <i class="far fa-user-circle" style="font-size: 64px; color: var(--brand-primary);"></i>
+                    <div class="table-card" style="max-width: 600px; margin: 0 auto; padding: 40px;">
+                        <div style="text-align: center; margin-bottom: 32px;">
+                            <i class="far fa-user-circle" style="font-size: 72px; color: var(--text-tertiary);"></i>
                             <h2 style="margin-top: 16px;" data-lang="profileTitle">ข้อมูลบัญชี</h2>
                         </div>
                         <form id="profileForm" onsubmit="event.preventDefault(); saveProfile();">
                             <div class="form-group" style="margin-bottom: 16px;">
                                 <label data-lang="profEmail">อีเมล (แก้ไขไม่ได้)</label>
-                                <input type="text" id="prof-email" disabled style="background: #f1f5f9;">
+                                <input type="text" id="prof-email" disabled style="background: #F2F2F7; cursor:not-allowed;">
                             </div>
                             <div class="form-group" style="margin-bottom: 16px;">
-                                <label data-lang="profNameTh">ชื่อ-สกุล (ไทย)</label>
-                                <input type="text" id="prof-nameTh" required>
+                                <label data-lang="profName">ชื่อ-สกุล (Full Name)</label>
+                                <input type="text" id="prof-name" required>
                             </div>
-                            <div class="form-group" style="margin-bottom: 24px;">
-                                <label data-lang="profNameEn">ชื่อ-สกุล (Eng)</label>
-                                <input type="text" id="prof-nameEn" required>
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label>ตำแหน่ง</label>
+                                <select id="prof-role" disabled style="background: #F2F2F7; cursor: not-allowed;">
+                                    <option value="user">พนักงานทั่วไป (Staff)</option>
+                                    <option value="admin">ผู้ดูแลระบบ (Admin)</option>
+                                </select>
                             </div>
-                            <button type="submit" class="btn-primary" style="width: 100%;" data-lang="btnSaveProf">บันทึกการเปลี่ยนแปลง</button>
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label>แผนก</label>
+                                <input type="text" value="ผลิตภัณฑ์ดูแลผิวหน้า" disabled style="background: #F2F2F7; cursor: not-allowed;">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label>เบอร์โทรศัพท์</label>
+                                <input type="tel" id="prof-phone" placeholder="08X-XXX-XXXX">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 32px;">
+                                <label>ที่อยู่พนักงาน</label>
+                                <textarea id="prof-address" rows="3" placeholder="ระบุที่อยู่..." style="width: 100%; padding: 12px 14px; border: 1px solid var(--border-light); border-radius: 10px; font-family: 'Kanit', sans-serif; font-size: 14px; outline: none; background: #F2F2F7; color: var(--text-main); transition: all 0.2s ease; resize: vertical;" onfocus="this.style.background='#FFFFFF'; this.style.borderColor='var(--brand-primary)';" onblur="this.style.background='#F2F2F7'; this.style.borderColor='var(--border-light)';"></textarea>
+                            </div>
+                            <div style="display: flex; gap: 12px; justify-content: space-between;">
+                                <button type="button" class="btn-outline" style="width: 48%; justify-content: center;" onclick="switchTab('sec-inventory')" data-lang="btnCancel">ยกเลิก</button>
+                                <button type="submit" class="btn-primary" style="width: 48%; justify-content: center;" data-lang="btnSaveProf">บันทึกการเปลี่ยนแปลง</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -210,28 +200,33 @@
         </main>
     </div>
 
-    <!-- MODAL: เพิ่มพัสดุ -->
+    <!-- MODAL: เพิ่มสินค้า -->
     <div id="addProductModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fas fa-box" style="color:var(--brand-primary);"></i> <span data-lang="btnAdmin">เพิ่มพัสดุ</span></h3>
+                <h3><i class="fas fa-box" style="color:var(--brand-primary);"></i> <span data-lang="btnAdmin">เพิ่มสินค้า</span></h3>
                 <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
             </div>
             <form id="addProductForm" onsubmit="event.preventDefault(); saveProduct();">
                 <div class="modal-body">
                     <div class="form-grid">
-                        <div class="form-group full"><label>รหัส (Item Code)</label><input type="text" id="pd-id" required></div>
-                        <div class="form-group full"><label>รายการ (Item Name)</label><input type="text" id="pd-name" required></div>
-                        <div class="form-group full"><label>หมวดหมู่ (Category)</label>
+                        <div class="form-group full"><label>รหัส (Code)</label><input type="text" id="pd-id" readonly style="background-color: #F2F2F7; cursor: not-allowed;" placeholder="Auto Gen"></div>
+                        <div class="form-group full"><label>ชื่อสินค้า (Product Name)</label><input type="text" id="pd-name" required></div>
+                        <div class="form-group full"><label>ประเภทสินค้า (Category)</label>
                             <select id="pd-cat" required>
-                                <option value="อุปกรณ์สำนักงาน">อุปกรณ์สำนักงาน</option>
-                                <option value="สบู่/ครีมอาบน้ำ">สบู่/ครีมอาบน้ำ</option>
-                                <option value="ดูแลเส้นผม">ดูแลเส้นผม</option>
-                                <option value="ดูแลผิว">ดูแลผิว</option>
+                                <option value="ผลิตภัณฑ์ทำความสะอาดผิว">ผลิตภัณฑ์ทำความสะอาดผิว (Cleansing)</option>
+                                <option value="ผลิตภัณฑ์บำรุงผิว">ผลิตภัณฑ์บำรุงผิว (Skincare)</option>
+                                <option value="ผลิตภัณฑ์ปกป้องผิว">ผลิตภัณฑ์ปกป้องผิว (Protection)</option>
+                                <option value="ผลิตภัณฑ์ดูแลผิวเฉพาะด้าน">ผลิตภัณฑ์ดูแลผิวเฉพาะด้าน (Targeted Care)</option>
                             </select>
                         </div>
-                        <div class="form-group"><label>จำนวนตั้งต้น</label><input type="number" id="pd-qty" min="0" value="0" required></div>
-                        <div class="form-group"><label>จุดแจ้งเตือน</label><input type="number" id="pd-alert" min="0" value="20" required></div>
+                        <div class="form-group"><label>จำนวนสินค้า</label><input type="number" id="pd-qty" min="0" required></div>
+                        <div class="form-group"><label>หน่วยนับ</label>
+                            <select id="pd-unit" required><option value="ขวด">ขวด</option><option value="หลอด">หลอด</option><option value="กระปุก">กระปุก</option><option value="กล่อง">กล่อง</option></select>
+                        </div>
+                        <div class="form-group"><label>วันที่นำเข้า</label><input type="date" id="pd-import-date" required></div>
+                        <div class="form-group"><label>วันหมดอายุ</label><input type="date" id="pd-expiry-date" required></div>
+                        <div class="form-group full"><label>จุดแจ้งเตือน</label><input type="number" id="pd-alert" min="0" value="20" required></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -242,24 +237,24 @@
         </div>
     </div>
 
-    <!-- 🌟 MODAL: แก้ไขพัสดุ (ที่หายไป กลับมาแล้ว!) -->
+    <!-- MODAL: แก้ไขสินค้า -->
     <div id="editProductModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fas fa-edit" style="color:#f59e0b;"></i> <span>แก้ไขข้อมูลพัสดุ</span></h3>
+                <h3><i class="fas fa-edit" style="color:#FF9500;"></i> <span>แก้ไขข้อมูลสินค้า</span></h3>
                 <button class="close-btn" onclick="closeEditModal()"><i class="fas fa-times"></i></button>
             </div>
             <form id="editProductForm" onsubmit="event.preventDefault(); updateProduct();">
                 <div class="modal-body">
                     <div class="form-grid">
-                        <div class="form-group full"><label>รหัส (Item Code)</label><input type="text" id="edit-pd-id" required></div>
-                        <div class="form-group full"><label>รายการ (Item Name)</label><input type="text" id="edit-pd-name" required></div>
-                        <div class="form-group full"><label>หมวดหมู่ (Category)</label>
+                        <div class="form-group full"><label>รหัส (Code)</label><input type="text" id="edit-pd-id" readonly style="background-color: #F2F2F7; cursor: not-allowed;"></div>
+                        <div class="form-group full"><label>ชื่อสินค้า (Product Name)</label><input type="text" id="edit-pd-name" required></div>
+                        <div class="form-group full"><label>ประเภทสินค้า (Category)</label>
                             <select id="edit-pd-cat" required>
-                                <option value="อุปกรณ์สำนักงาน">อุปกรณ์สำนักงาน</option>
-                                <option value="สบู่/ครีมอาบน้ำ">สบู่/ครีมอาบน้ำ</option>
-                                <option value="ดูแลเส้นผม">ดูแลเส้นผม</option>
-                                <option value="ดูแลผิว">ดูแลผิว</option>
+                                <option value="ผลิตภัณฑ์ทำความสะอาดผิว">ผลิตภัณฑ์ทำความสะอาดผิว (Cleansing)</option>
+                                <option value="ผลิตภัณฑ์บำรุงผิว">ผลิตภัณฑ์บำรุงผิว (Skincare)</option>
+                                <option value="ผลิตภัณฑ์ปกป้องผิว">ผลิตภัณฑ์ปกป้องผิว (Protection)</option>
+                                <option value="ผลิตภัณฑ์ดูแลผิวเฉพาะด้าน">ผลิตภัณฑ์ดูแลผิวเฉพาะด้าน (Targeted Care)</option>
                             </select>
                         </div>
                         <div class="form-group"><label>แก้ไขยอดคงเหลือ</label><input type="number" id="edit-pd-qty" min="0" required></div>
@@ -268,13 +263,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn-outline" onclick="closeEditModal()" data-lang="btnCancel">ยกเลิก</button>
-                    <button type="submit" class="btn-primary" style="background-color: #f59e0b;" data-lang="btnSave">อัปเดตข้อมูล</button>
+                    <button type="submit" class="btn-primary" style="background-color: #FF9500;" data-lang="btnSave">อัปเดตข้อมูล</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- MODAL: ขอเบิกพัสดุ -->
+    <!-- MODAL: ขอเบิกสินค้า (มีช่องดึงหน่วยนับอัตโนมัติ) -->
     <div id="requestModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -288,8 +283,18 @@
                             <label>เลือกรายการ</label>
                             <select id="req-item" required><option value="" disabled selected>กำลังโหลดข้อมูล...</option></select>
                         </div>
-                        <div class="form-group"><label>จำนวน</label><input type="number" id="req-qty" min="1" value="1" required></div>
-                        <div class="form-group"><label>หมายเหตุ</label><input type="text" id="req-note" placeholder="เหตุผลการเบิก..."></div>
+                        <div class="form-group">
+                            <label>จำนวน</label>
+                            <input type="number" id="req-qty" min="1" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>หน่วยนับ</label>
+                            <input type="text" id="req-unit" readonly style="background-color: #F2F2F7; cursor: not-allowed; border: 1px solid transparent;" placeholder="-">
+                        </div>
+                        <div class="form-group full">
+                            <label>หมายเหตุ</label>
+                            <textarea id="req-note" placeholder="เหตุผลการเบิก..." rows="3" style="width: 100%; padding: 12px 14px; border: 1px solid var(--border-light); border-radius: 10px; font-family: 'Kanit', sans-serif; font-size: 14px; outline: none; background: #F2F2F7; color: var(--text-main); transition: all 0.2s ease; resize: vertical;" onfocus="this.style.background='#FFFFFF'; this.style.borderColor='var(--brand-primary)';" onblur="this.style.background='#F2F2F7'; this.style.borderColor='var(--border-light)';"></textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -312,24 +317,20 @@
                     <div class="form-grid">
                         <div class="form-group full">
                             <label>อีเมล (Email)</label>
-                            <input type="email" id="new-user-email" placeholder="name@bodycare.com" required>
+                            <input type="email" id="new-user-email" placeholder="name@facestock.com" required>
                         </div>
                         <div class="form-group full">
                             <label>รหัสผ่านชั่วคราว</label>
                             <input type="text" id="new-user-password" placeholder="อย่างน้อย 6 ตัวอักษร" required minlength="6">
                         </div>
-                        <div class="form-group">
-                            <label>ชื่อ-สกุล (ไทย)</label>
-                            <input type="text" id="new-user-nameTh" required>
-                        </div>
-                        <div class="form-group">
-                            <label>ชื่อ-สกุล (Eng)</label>
-                            <input type="text" id="new-user-nameEn" required>
+                        <div class="form-group full">
+                            <label>ชื่อ-สกุล (Full Name)</label>
+                            <input type="text" id="new-user-name" required>
                         </div>
                         <div class="form-group full">
                             <label>ระดับสิทธิ์</label>
                             <select id="new-user-role" required>
-                                <option value="user">พนักงาน (Staff)</option>
+                                <option value="user">พนักงานทั่วไป (Staff)</option>
                                 <option value="admin">ผู้ดูแลระบบ (Admin)</option>
                             </select>
                         </div>
@@ -343,7 +344,41 @@
         </div>
     </div>
 
-    <!-- Firebase Scripts -->
+    <!-- MODAL: แก้ไขข้อมูลผู้ใช้ -->
+    <div id="editUserModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-edit" style="color:#FF9500;"></i> <span>แก้ไขข้อมูลผู้ใช้</span></h3>
+                <button class="close-btn" onclick="closeEditUserModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="editUserForm" onsubmit="event.preventDefault(); submitEditUser();">
+                <div class="modal-body">
+                    <div class="form-grid">
+                        <div class="form-group full">
+                            <label>อีเมล (Email)</label>
+                            <input type="email" id="edit-user-email" disabled style="background-color: #F2F2F7; cursor: not-allowed;">
+                        </div>
+                        <div class="form-group full">
+                            <label>ชื่อ-สกุล (Full Name)</label>
+                            <input type="text" id="edit-user-name" required>
+                        </div>
+                        <div class="form-group full">
+                            <label>ระดับสิทธิ์</label>
+                            <select id="edit-user-role" required>
+                                <option value="user">พนักงานทั่วไป (Staff)</option>
+                                <option value="admin">ผู้ดูแลระบบ (Admin)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline" onclick="closeEditUserModal()" data-lang="btnCancel">ยกเลิก</button>
+                    <button type="submit" class="btn-primary" style="background-color: #FF9500;" data-lang="btnSave">อัปเดตข้อมูล</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script>
