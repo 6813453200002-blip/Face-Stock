@@ -44,16 +44,18 @@ const translations = {
         statusOut: "ของหมด", statusLow: "ใกล้หมด", statusNormal: "ปกติ", statusPending: "รออนุมัติ", statusApproved: "อนุมัติ", statusRejected: "ไม่อนุมัติ",
         btnApprove: "อนุมัติ", btnReject: "ไม่อนุมัติ",
         tableTitle: "รายการสินค้าในคลัง", thId: "รหัส", thName: "รายการ", thCat: "หมวดหมู่", thQty: "คงเหลือ", thUnit: "หน่วยนับ", thStatus: "สถานะ",
-        reqTitle: "คำขอเบิกสินค้า", reqThDate: "วันที่", reqThUser: "ผู้ขอเบิก", reqThItem: "รายการ", reqThQty: "จำนวน", reqThStatus: "สถานะ",
+        reqTitle: "คำขอเบิกสินค้า", reqThDate: "วันที่", reqThUser: "ผู้ขอเบิก", reqThItem: "รายการ", reqThQty: "จำนวน", reqThStatus: "สถานะ", reqThNote: "หมายเหตุ",
         adminInvAction: "จัดการ", adminReqAction: "ดำเนินการ", searchPlaceholder: "ค้นหารหัส หรือชื่อสินค้า...",
         reportTitle: "สรุปการเบิกจ่าย", repThCount: "จำนวนครั้ง", repThTotal: "ปริมาณเบิกออกรวม",
         userTitle: "ผู้ใช้งานระบบ", userThEmail: "อีเมล", userThName: "ชื่อ-สกุล", userThRole: "ระดับสิทธิ์", userThAction: "จัดการ", btnAddUser: "เพิ่มผู้ใช้",
         auditTitle: "ประวัติการเคลื่อนไหว (Audit Trail)", auditThDate: "วันที่ทำรายการ", auditThAction: "การกระทำ", auditThItem: "รายการสินค้า", auditThQty: "จำนวน", auditThUser: "ผู้ดำเนินการ",
-        profileTitle: "ข้อมูลบัญชี", profEmail: "อีเมล (แก้ไขไม่ได้)", profName: "ชื่อ-สกุล", profDept: "แผนก", profPhone: "เบอร์โทรศัพท์", profAddress: "ที่อยู่", btnSaveProf: "บันทึกการเปลี่ยนแปลง",
+        profileTitle: "ข้อมูลบัญชี", profEmail: "อีเมล (แก้ไขไม่ได้)", profFirstName: "ชื่อ (First Name)", profLastName: "นามสกุล (Last Name)", profDept: "แผนก", profPhone: "เบอร์โทรศัพท์", profAddress: "ที่อยู่", btnSaveProf: "บันทึกการเปลี่ยนแปลง",
         roleAdmin: "ผู้ดูแลระบบ", roleUser: "พนักงานทั่วไป",
         widgetAdmin1: "สินค้าทั้งหมด (FAC)", widgetAdmin2: "สินค้าใกล้หมด", widgetAdmin3: "สินค้าหมดสต๊อก",
         widgetUser1: "สินค้าพร้อมเบิก", widgetUser2: "รออนุมัติ", widgetUser3: "อนุมัติแล้ว",
-        auditAction: { import: 'นำเข้าสินค้า', issue: 'เบิกจ่ายออก', adjust_increase: 'ปรับเพิ่มยอด', adjust_decrease: 'ปรับลดยอด', delete: 'ลบรายการ' }
+        auditAction: { import: 'นำเข้าสินค้า', issue: 'เบิกจ่ายออก', adjust_increase: 'ปรับเพิ่มยอด', adjust_decrease: 'ปรับลดยอด', delete: 'ลบรายการ' },
+        tableEmptyInv: "ไม่พบข้อมูลสินค้า", tableEmptyReq: "ไม่มีรายการคำขอ", tableEmptyRep: "ยังไม่มีข้อมูลสรุปผล", tableEmptyUser: "ไม่พบข้อมูลผู้ใช้งาน",
+        thImportDate: "วันที่นำเข้า", thExpiryDate: "วันหมดอายุ", reqAlertStockOut: "สินค้าไม่เพียงพอ"
     },
     en: {
         title1: "Internal Requisition System", loginHeader: "Sign In", loginSub: "For FaceStock Staff Only",
@@ -65,21 +67,23 @@ const translations = {
         statusOut: "Out of Stock", statusLow: "Low Stock", statusNormal: "Normal", statusPending: "Pending", statusApproved: "Approved", statusRejected: "Rejected",
         btnApprove: "Approve", btnReject: "Reject",
         tableTitle: "Inventory Stock", thId: "Code", thName: "Item", thCat: "Category", thQty: "Balance", thUnit: "Unit", thStatus: "Status",
-        reqTitle: "Requisition Requests", reqThDate: "Date", reqThUser: "Requester", reqThItem: "Item", reqThQty: "Qty", reqThStatus: "Status",
+        reqTitle: "Requisition Requests", reqThDate: "Date", reqThUser: "Requester", reqThItem: "Item", reqThQty: "Qty", reqThStatus: "Status", reqThNote: "Note",
         adminInvAction: "Action", adminReqAction: "Action", searchPlaceholder: "Search code or product name...",
         reportTitle: "Summary Report", repThCount: "Request Count", repThTotal: "Total Qty Issued",
         userTitle: "System Users", userThEmail: "Email", userThName: "Name", userThRole: "Role", userThAction: "Action", btnAddUser: "Add User",
         auditTitle: "Audit Trail", auditThDate: "Date", auditThAction: "Action", auditThItem: "Item", auditThQty: "Qty", auditThUser: "Done By",
-        profileTitle: "Account Info", profEmail: "Email (Read-only)", profName: "Full Name", profDept: "Department", profPhone: "Phone", profAddress: "Address", btnSaveProf: "Save Changes",
+        profileTitle: "Account Info", profEmail: "Email (Read-only)", profFirstName: "First Name", profLastName: "Last Name", profDept: "Department", profPhone: "Phone", profAddress: "Address", btnSaveProf: "Save Changes",
         roleAdmin: "Admin", roleUser: "Staff",
         widgetAdmin1: "Total Items (FAC)", widgetAdmin2: "Low Stock", widgetAdmin3: "Out of Stock",
         widgetUser1: "Available Items", widgetUser2: "Pending", widgetUser3: "Approved",
-        auditAction: { import: 'Import', issue: 'Issue', adjust_increase: 'Adjust (In)', adjust_decrease: 'Adjust (Out)', delete: 'Delete' }
+        auditAction: { import: 'Import', issue: 'Issue', adjust_increase: 'Adjust (In)', adjust_decrease: 'Adjust (Out)', delete: 'Delete' },
+        tableEmptyInv: "No inventory items found", tableEmptyReq: "No requisition requests", tableEmptyRep: "No summary data available", tableEmptyUser: "No users found",
+        thImportDate: "Import Date", thExpiryDate: "Expiry Date", reqAlertStockOut: "Insufficient Stock"
     }
 };
 
 const getCategoryEn = catTh => ({"ผลิตภัณฑ์ทำความสะอาดผิว": "Cleansing", "ผลิตภัณฑ์บำรุงผิว": "Skincare", "ผลิตภัณฑ์ปกป้องผิว": "Protection", "ผลิตภัณฑ์ดูแลผิวเฉพาะด้าน": "Targeted Care"}[catTh] || catTh);
-const getUnitEn = unitTh => ({"ชิ้น": "pcs", "ขวด": "btl", "หลอด": "tube", "กระปุก": "jar", "กล่อง": "box"}[unitTh] || unitTh);
+const getUnitEn = unitTh => ({"ชิ้น": "pcs", "ขวด": "btl", "หลอด": "tube", "กระปุก": "jar", "กล่อง": "box", "ก้อน": "bar", "แผ่น": "sheet"}[unitTh] || unitTh);
 
 function setLanguage(lang) {
     currentLang = lang;
@@ -87,8 +91,8 @@ function setLanguage(lang) {
     if (currentUser) updateUI();
     else {
         const t = translations[currentLang];
-        document.querySelectorAll('[data-lang]').forEach(el => el.innerHTML = t[el.getAttribute('data-lang')]);
-        document.querySelectorAll('[data-lang-placeholder]').forEach(el => el.placeholder = t[el.getAttribute('data-lang-placeholder')]);
+        document.querySelectorAll('[data-lang]').forEach(el => el.innerHTML = t[el.getAttribute('data-lang')] || el.innerHTML);
+        document.querySelectorAll('[data-lang-placeholder]').forEach(el => el.placeholder = t[el.getAttribute('data-lang-placeholder')] || el.placeholder);
     }
 }
 
@@ -99,7 +103,7 @@ function updateUI() {
     document.querySelectorAll('[data-lang]').forEach(el => el.innerHTML = t[el.getAttribute('data-lang')] || el.innerHTML);
     document.querySelectorAll('[data-lang-placeholder]').forEach(el => el.placeholder = t[el.getAttribute('data-lang-placeholder')] || el.placeholder);
     
-    document.getElementById('user-name-display').innerText = currentUser.name || currentUser.email;
+    document.getElementById('user-name-display').innerText = `${currentUser.firstName || ''} ${currentUser.lastName || ''}`.trim() || currentUser.email;
     document.getElementById('user-role-display').innerText = currentUser.role === 'admin' ? t.roleAdmin : t.roleUser;
     
     renderSidebarAndWidgets(t);
@@ -115,6 +119,18 @@ function updateUI() {
 }
 
 // ==========================================
+// Sidebar UI Controls (Mobile Hamburger Menu)
+// ==========================================
+function toggleSidebar() {
+    document.querySelector('.sidebar').classList.toggle('show');
+    document.getElementById('mobile-overlay').classList.toggle('show');
+}
+function closeSidebar() {
+    document.querySelector('.sidebar').classList.remove('show');
+    document.getElementById('mobile-overlay').classList.remove('show');
+}
+
+// ==========================================
 // 3. Auth & Lifecycle
 // ==========================================
 function login() {
@@ -126,7 +142,7 @@ function login() {
         const doc = await userRef.get();
         if (!doc.exists) {
             const isAdmin = email.startsWith('admin');
-            const newUserData = { uid: userCredential.user.uid, email, name: '', department: 'ผลิตภัณฑ์ดูแลผิวหน้า', role: isAdmin ? 'admin' : 'user', createdAt: firebase.firestore.FieldValue.serverTimestamp() };
+            const newUserData = { uid: userCredential.user.uid, email, firstName: '', lastName: '', department: 'ผลิตภัณฑ์ดูแลผิวหน้า', role: isAdmin ? 'admin' : 'user', createdAt: firebase.firestore.FieldValue.serverTimestamp() };
             await userRef.set(newUserData);
             currentUser = newUserData;
         } else { currentUser = doc.data(); }
@@ -156,7 +172,8 @@ function switchTab(secId, element = null) {
     if (element) element.classList.add('active');
     else { const targetNav = document.querySelector(`.nav-item[onclick*="${secId}"]`); if(targetNav) targetNav.classList.add('active'); }
     
-    updateUI(); // วาดข้อมูลใหม่เมื่อเปลี่ยนแท็บ
+    closeSidebar();
+    updateUI();
 }
 
 function fetchDatabaseRealtime() {
@@ -182,7 +199,7 @@ function fetchDatabaseRealtime() {
 function logAudit(action, itemCode, itemName, qty) {
     refs.audit.add({
         action, itemCode, itemName, qty,
-        byUser: currentUser ? (currentUser.name || currentUser.email) : 'System',
+        byUser: currentUser ? (`${currentUser.firstName || ''} ${currentUser.lastName || ''}`.trim() || currentUser.email) : 'System',
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
     }).catch(err => console.log("Audit Log Error:", err));
 }
@@ -195,7 +212,7 @@ function renderNotifications(t) {
     if (currentUser.role === 'admin') {
         notifs = requestsData.filter(r => r.status === 'pending');
     } else {
-        notifs = requestsData.filter(r => r.requestedBy === currentUser.email && r.status === 'approved' && !r.userNotified);
+        notifs = requestsData.filter(r => r.requestedBy === currentUser.email && (r.status === 'approved' || r.status === 'rejected') && !r.userNotified);
     }
 
     badge.style.display = notifs.length > 0 ? 'flex' : 'none';
@@ -207,11 +224,18 @@ function renderNotifications(t) {
     }
 
     list.innerHTML = notifs.map(n => {
-        const title = currentUser.role === 'admin' ? (currentLang==='th'?'มีคำขอเบิกใหม่':'New Request') : (currentLang==='th'?'อนุมัติแล้ว':'Approved');
+        let title = '', icon = '', color = '';
+        if(currentUser.role === 'admin') {
+            title = currentLang==='th'?'มีคำขอเบิกใหม่':'New Request';
+            icon = 'fa-clipboard-list'; color = 'var(--brand-primary)';
+        } else {
+            if(n.status === 'approved') {
+                title = currentLang==='th'?'อนุมัติแล้ว':'Approved'; icon = 'fa-check-circle'; color = 'var(--status-success-text)';
+            } else {
+                title = currentLang==='th'?'ถูกปฏิเสธ':'Rejected'; icon = 'fa-times-circle'; color = 'var(--status-danger-text)';
+            }
+        }
         const desc = `[${n.itemCode}] ${n.itemName || ''} (${n.reqQty})`;
-        const icon = currentUser.role === 'admin' ? 'fa-clipboard-list' : 'fa-check-circle';
-        const color = currentUser.role === 'admin' ? 'var(--brand-primary)' : 'var(--status-success-text)';
-        
         return `<div class="notif-item unread" onclick="handleNotifClick('${n.dbId}')">
             <div class="notif-item-icon" style="color: ${color};"><i class="fas ${icon}"></i></div>
             <div class="notif-item-content">
@@ -262,14 +286,36 @@ function handleMainAction() {
     } else {
         const select = document.getElementById('req-item');
         select.innerHTML = '<option value="" disabled selected>เลือกรายการ...</option>' + inventoryData.filter(i => i.qty > 0).map(i => `<option value="${i.dbId}" data-unit="${i.unit||'ชิ้น'}">[${i.id}] ${i.name} (คงเหลือ: ${i.qty} ${i.unit||'ชิ้น'})</option>`).join('');
-        select.onchange = function() { document.getElementById('req-unit').value = this.options[this.selectedIndex].getAttribute('data-unit'); };
+        
+        select.onchange = function() {
+            document.getElementById('req-unit').value = this.options[this.selectedIndex].getAttribute('data-unit');
+            validateRequestQty();
+        };
+        
         document.getElementById('req-unit').value = '';
+        document.getElementById('req-qty').value = 1;
         document.getElementById('requestModal').style.display = 'flex';
     }
 }
 function closeModal() { document.getElementById('addProductModal').style.display = 'none'; document.getElementById('addProductForm').reset(); }
 function closeEditModal() { document.getElementById('editProductModal').style.display = 'none'; document.getElementById('editProductForm').reset(); currentEditDbId = null; }
 function closeRequestModal() { document.getElementById('requestModal').style.display = 'none'; document.getElementById('requestForm').reset(); }
+
+function validateRequestQty() {
+    const itemId = document.getElementById('req-item').value;
+    const reqQtyInput = document.getElementById('req-qty');
+    let reqQty = parseInt(reqQtyInput.value);
+    
+    if(!itemId || isNaN(reqQty)) return;
+
+    const item = inventoryData.find(i => i.dbId === itemId);
+    const alertMsg = translations[currentLang].reqAlertStockOut;
+
+    if(reqQty > item.qty) {
+        Swal.fire({ title: alertMsg, text: `รายการนี้คงเหลือเพียง ${item.qty} ${item.unit||'ชิ้น'}`, icon: 'warning', timer: 2000, showConfirmButton: false });
+        reqQtyInput.value = item.qty;
+    }
+}
 
 function saveProduct() {
     const docData = {
@@ -279,7 +325,10 @@ function saveProduct() {
         expiryDate: document.getElementById('pd-expiry-date').value, alertLimit: parseInt(document.getElementById('pd-alert').value),
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
     };
-    refs.inventory.add(docData).then(() => { logAudit('import', docData.id, docData.name, docData.qty); closeModal(); Swal.fire('สำเร็จ', 'บันทึกสินค้าเข้าคลังเรียบร้อย', 'success'); });
+    refs.inventory.add(docData).then(() => { 
+        logAudit('import', docData.id, docData.name, docData.qty); 
+        closeModal(); Swal.fire('สำเร็จ', 'บันทึกสินค้าเข้าคลังเรียบร้อย', 'success'); 
+    });
 }
 
 function editProduct(dbId) {
@@ -287,7 +336,9 @@ function editProduct(dbId) {
     currentEditDbId = dbId;
     document.getElementById('edit-pd-id').value = item.id; document.getElementById('edit-pd-name').value = item.name;
     document.getElementById('edit-pd-cat').value = item.category; document.getElementById('edit-pd-qty').value = item.qty;
-    document.getElementById('edit-pd-unit').value = item.unit || 'ชิ้น'; // ดึงหน่วยนับมาแสดง
+    document.getElementById('edit-pd-unit').value = item.unit || 'ขวด'; 
+    document.getElementById('edit-pd-import-date').value = item.importDate || '';
+    document.getElementById('edit-pd-expiry-date').value = item.expiryDate || '';
     document.getElementById('edit-pd-alert').value = item.alertLimit;
     document.getElementById('editProductModal').style.display = 'flex';
 }
@@ -298,7 +349,9 @@ function updateProduct() {
     const newQty = parseInt(document.getElementById('edit-pd-qty').value);
     const updatedData = {
         name: document.getElementById('edit-pd-name').value, category: document.getElementById('edit-pd-cat').value,
-        qty: newQty, unit: document.getElementById('edit-pd-unit').value, alertLimit: parseInt(document.getElementById('edit-pd-alert').value)
+        qty: newQty, unit: document.getElementById('edit-pd-unit').value, 
+        importDate: document.getElementById('edit-pd-import-date').value, expiryDate: document.getElementById('edit-pd-expiry-date').value,
+        alertLimit: parseInt(document.getElementById('edit-pd-alert').value)
     };
     refs.inventory.doc(currentEditDbId).update(updatedData).then(() => {
         const diff = newQty - oldItem.qty;
@@ -320,7 +373,10 @@ function deleteProduct(dbId) {
 function submitRequest() {
     const itemId = document.getElementById('req-item').value; const reqQty = parseInt(document.getElementById('req-qty').value);
     const item = inventoryData.find(i => i.dbId === itemId);
-    if(reqQty > item.qty) return Swal.fire({ title: 'สต๊อกไม่พอ', text: `รายการนี้คงเหลือเพียง ${item.qty} ชิ้น`, icon: 'error' });
+    const alertMsg = translations[currentLang].reqAlertStockOut;
+
+    if(reqQty > item.qty) return Swal.fire({ title: alertMsg, text: `รายการนี้คงเหลือเพียง ${item.qty} ${item.unit||'ชิ้น'}`, icon: 'error' });
+    
     refs.requests.add({
         itemId: item.dbId, itemCode: item.id, itemName: item.name, reqQty, note: document.getElementById('req-note').value,
         status: 'pending', requestedBy: currentUser.email, userNotified: false, createdAt: firebase.firestore.FieldValue.serverTimestamp()
@@ -336,7 +392,7 @@ function approveRequest(reqId, itemId, reqQty) {
                     const newQty = itemDoc.data().qty - reqQty;
                     if (newQty < 0) throw "ปริมาณคงเหลือไม่เพียงพอ";
                     transaction.update(itemRef, { qty: newQty }); 
-                    transaction.update(reqRef, { status: 'approved', userNotified: false }); // รีเซ็ตแจ้งเตือนให้ User
+                    transaction.update(reqRef, { status: 'approved', userNotified: false });
                     return itemDoc.data();
                 });
             }).then((data) => {
@@ -349,7 +405,7 @@ function approveRequest(reqId, itemId, reqQty) {
 
 function rejectRequest(reqId) {
     Swal.fire({ title: 'ไม่อนุมัติคำขอ', text: 'ระบุเหตุผล (ถ้ามี)', input: 'text', icon: 'warning', showCancelButton: true, confirmButtonColor: '#FF3B30', confirmButtonText: 'ไม่อนุมัติ' }).then(res => {
-        if(res.isConfirmed) refs.requests.doc(reqId).update({ status: 'rejected', rejectReason: res.value || 'ไม่ได้ระบุเหตุผล', userNotified: true }).then(() => Swal.fire('บันทึกสำเร็จ', 'ปฏิเสธเรียบร้อย', 'success'));
+        if(res.isConfirmed) refs.requests.doc(reqId).update({ status: 'rejected', rejectReason: res.value || 'ไม่ได้ระบุเหตุผล', userNotified: false }).then(() => Swal.fire('บันทึกสำเร็จ', 'ปฏิเสธเรียบร้อย', 'success'));
     });
 }
 
@@ -359,7 +415,8 @@ function rejectRequest(reqId) {
 function loadProfileData() {
     if(!currentUser) return;
     document.getElementById('prof-email').value = currentUser.email || '';
-    document.getElementById('prof-name').value = currentUser.name || '';
+    document.getElementById('prof-firstname').value = currentUser.firstName || '';
+    document.getElementById('prof-lastname').value = currentUser.lastName || '';
     document.getElementById('prof-role').value = currentUser.role || 'user';
     document.getElementById('prof-dept').value = currentUser.department || '';
     document.getElementById('prof-phone').value = currentUser.phone || '';
@@ -368,7 +425,9 @@ function loadProfileData() {
 
 function saveProfile() {
     const updates = { 
-        name: document.getElementById('prof-name').value, 
+        firstName: document.getElementById('prof-firstname').value, 
+        lastName: document.getElementById('prof-lastname').value,
+        department: document.getElementById('prof-dept').value,
         phone: document.getElementById('prof-phone').value, 
         address: document.getElementById('prof-address').value 
     };
@@ -383,7 +442,7 @@ function closeAddUserModal() { document.getElementById('addUserModal').style.dis
 function submitNewUser() {
     const email = document.getElementById('new-user-email').value.trim(); const password = document.getElementById('new-user-password').value;
     const docData = {
-        email, name: document.getElementById('new-user-name').value, role: document.getElementById('new-user-role').value,
+        email, firstName: document.getElementById('new-user-firstname').value, lastName: document.getElementById('new-user-lastname').value, role: document.getElementById('new-user-role').value,
         department: document.getElementById('new-user-dept').value, phone: document.getElementById('new-user-phone').value, 
         address: document.getElementById('new-user-address').value, createdAt: firebase.firestore.FieldValue.serverTimestamp()
     };
@@ -397,7 +456,7 @@ function submitNewUser() {
 function editUser(uid) {
     const user = usersData.find(u => u.uid === uid); if(!user) return;
     currentEditUserId = uid;
-    document.getElementById('edit-user-email').value = user.email; document.getElementById('edit-user-name').value = user.name || '';
+    document.getElementById('edit-user-email').value = user.email; document.getElementById('edit-user-firstname').value = user.firstName || ''; document.getElementById('edit-user-lastname').value = user.lastName || '';
     document.getElementById('edit-user-role').value = user.role; document.getElementById('edit-user-dept').value = user.department || '';
     document.getElementById('edit-user-phone').value = user.phone || ''; document.getElementById('edit-user-address').value = user.address || '';
     document.getElementById('editUserModal').style.display = 'flex';
@@ -407,7 +466,7 @@ function closeEditUserModal() { document.getElementById('editUserModal').style.d
 function submitEditUser() {
     if(!currentEditUserId) return;
     refs.users.doc(currentEditUserId).update({
-        name: document.getElementById('edit-user-name').value, role: document.getElementById('edit-user-role').value,
+        firstName: document.getElementById('edit-user-firstname').value, lastName: document.getElementById('edit-user-lastname').value, role: document.getElementById('edit-user-role').value,
         department: document.getElementById('edit-user-dept').value, phone: document.getElementById('edit-user-phone').value, address: document.getElementById('edit-user-address').value
     }).then(() => { closeEditUserModal(); Swal.fire('สำเร็จ', 'อัปเดตเรียบร้อย', 'success'); });
 }
@@ -455,50 +514,75 @@ function renderSidebarAndWidgets(t) {
 }
 
 function renderInventoryTable(t, data = inventoryData) {
-    document.querySelector('#inventory-table thead').innerHTML = `<tr><th class="col-id">${t.thId}</th><th>${t.thName}</th><th class="col-cat">${t.thCat}</th><th class="col-qty">${t.thQty}</th><th class="col-unit">${t.thUnit}</th><th class="col-status">${t.thStatus}</th>${currentUser.role==='admin'?`<th style="text-align:right;">${t.adminInvAction}</th>`:''}</tr>`;
-    if(data.length === 0) return document.getElementById('inventory-list').innerHTML = `<tr><td colspan="${currentUser.role==='admin'?7:6}" style="text-align:center; padding:40px; color:var(--text-tertiary);">ไม่พบข้อมูลสินค้า</td></tr>`; 
+    const extraTh = currentUser.role !== 'admin' ? `<th>${t.thImportDate}</th><th>${t.thExpiryDate}</th>` : '';
+    const actionTh = currentUser.role==='admin' ? `<th style="text-align:right;">${t.adminInvAction}</th>` : '';
+    document.querySelector('#inventory-table thead').innerHTML = `<tr><th class="col-id">${t.thId}</th><th>${t.thName}</th><th class="col-cat">${t.thCat}</th><th class="col-qty">${t.thQty}</th><th class="col-unit">${t.thUnit}</th>${extraTh}<th class="col-status">${t.thStatus}</th>${actionTh}</tr>`;
+    
+    if(data.length === 0) {
+        let colSpan = currentUser.role==='admin' ? 7 : 8;
+        return document.getElementById('inventory-list').innerHTML = `<tr><td colspan="${colSpan}" style="text-align:center; padding:40px; color:var(--text-tertiary);">${t.tableEmptyInv}</td></tr>`; 
+    }
     
     document.getElementById('inventory-list').innerHTML = data.map(i => {
         const isOut = i.qty === 0, isLow = i.qty <= i.alertLimit;
         const bClass = isOut ? 'badge-danger' : (isLow ? 'badge-warning' : 'badge-success');
         const sText = isOut ? t.statusOut : (isLow ? t.statusLow : t.statusNormal);
+        
+        let extraTd = '';
+        if(currentUser.role !== 'admin') {
+            const impDate = i.importDate ? new Date(i.importDate).toLocaleDateString(currentLang==='th'?'th-TH':'en-GB') : '-';
+            const expDate = i.expiryDate ? new Date(i.expiryDate).toLocaleDateString(currentLang==='th'?'th-TH':'en-GB') : '-';
+            extraTd = `<td style="color:var(--text-secondary); font-size: 13px;">${impDate}</td><td style="color:var(--text-secondary); font-size: 13px;">${expDate}</td>`;
+        }
+        
         const actionTd = currentUser.role==='admin' ? `<td style="text-align:right;"><button onclick="editProduct('${i.dbId}')" class="btn-primary" style="background:#FF9500; display:inline-flex; padding:6px 10px; margin-right:4px;"><i class="fas fa-edit"></i></button><button onclick="deleteProduct('${i.dbId}')" class="btn-primary" style="background:#FF3B30; display:inline-flex; padding:6px 10px;"><i class="fas fa-trash"></i></button></td>` : '';
-        return `<tr><td style="color:var(--text-tertiary);">${i.id}</td><td style="font-weight:500;">${i.name}</td><td style="color:var(--text-secondary);">${currentLang==='en'?getCategoryEn(i.category):i.category}</td><td style="text-align:right; font-weight:500;">${i.qty}</td><td style="color:var(--text-secondary);">${currentLang==='en'?getUnitEn(i.unit||'ชิ้น'):(i.unit||'ชิ้น')}</td><td class="col-status"><span class="badge ${bClass}"><span class="status-dot"></span> ${sText}</span></td>${actionTd}</tr>`;
+        return `<tr><td style="color:var(--text-tertiary);">${i.id}</td><td style="font-weight:500;">${i.name}</td><td style="color:var(--text-secondary);">${currentLang==='en'?getCategoryEn(i.category):i.category}</td><td style="text-align:right; font-weight:500;">${i.qty}</td><td style="color:var(--text-secondary);">${currentLang==='en'?getUnitEn(i.unit||'ชิ้น'):(i.unit||'ชิ้น')}</td>${extraTd}<td class="col-status"><span class="badge ${bClass}"><span class="status-dot"></span> ${sText}</span></td>${actionTd}</tr>`;
     }).join('');
 }
 
 function renderRequestsTable(t) {
-    document.querySelector('#requests-table thead').innerHTML = `<tr><th>${t.reqThDate}</th><th>${t.reqThUser}</th><th>${t.reqThItem}</th><th style="text-align:right;">${t.reqThQty}</th><th style="text-align:center;">${t.reqThStatus}</th>${currentUser.role==='admin'?`<th style="text-align:right;">${t.adminReqAction}</th>`:''}</tr>`;
+    document.querySelector('#requests-table thead').innerHTML = `<tr><th>${t.reqThDate}</th><th>${t.reqThUser}</th><th>${t.reqThItem}</th><th style="text-align:right;">${t.reqThQty}</th><th style="text-align:center;">${t.reqThStatus}</th><th>${t.reqThNote}</th>${currentUser.role==='admin'?`<th style="text-align:right;">${t.adminReqAction}</th>`:''}</tr>`;
     const data = currentUser.role==='admin' ? requestsData : requestsData.filter(r => r.requestedBy === currentUser.email);
-    if(data.length === 0) return document.getElementById('requests-list').innerHTML = `<tr><td colspan="${currentUser.role==='admin'?6:5}" style="text-align:center; padding:40px; color:var(--text-tertiary);">ไม่มีรายการคำขอ</td></tr>`;
+    if(data.length === 0) return document.getElementById('requests-list').innerHTML = `<tr><td colspan="${currentUser.role==='admin'?7:6}" style="text-align:center; padding:40px; color:var(--text-tertiary);">${t.tableEmptyReq}</td></tr>`;
     
     document.getElementById('requests-list').innerHTML = data.map(r => {
         let bClass = 'badge-warning', sText = t.statusPending, actionBtns = '';
         if(r.status === 'approved') { bClass = 'badge-success'; sText = t.statusApproved; }
-        else if(r.status === 'rejected') { bClass = 'badge-danger'; sText = t.statusRejected + (r.rejectReason?`<br><span style="font-size:11px;font-weight:400;">(${r.rejectReason})</span>`:''); }
+        else if(r.status === 'rejected') { bClass = 'badge-danger'; sText = t.statusRejected; }
+        
+        let noteText = r.status === 'rejected' ? (r.rejectReason || '-') : (r.note || '-');
+        let noteColor = r.status === 'rejected' ? 'color:#FF3B30;' : 'color:var(--text-secondary);';
+
         if(r.status === 'pending' && currentUser.role==='admin') actionBtns = `<td style="text-align:right;"><button onclick="approveRequest('${r.dbId}', '${r.itemId}', ${r.reqQty})" class="btn-primary" style="background:#34C759; display:inline-flex; padding:6px 12px; margin-right:4px;">${t.btnApprove}</button><button onclick="rejectRequest('${r.dbId}')" class="btn-primary" style="background:#FF3B30; display:inline-flex; padding:6px 12px;">${t.btnReject}</button></td>`;
         else if(currentUser.role==='admin') actionBtns = `<td></td>`;
-        return `<tr><td style="color:var(--text-secondary); font-size:13px; vertical-align:top;">${r.createdAt?r.createdAt.toDate().toLocaleDateString(currentLang==='th'?'th-TH':'en-GB'):''}</td><td style="vertical-align:top;">${r.requestedBy.split('@')[0]}</td><td style="font-weight:500; vertical-align:top;">[${r.itemCode}] ${r.itemName}</td><td style="text-align:right; font-weight:500; vertical-align:top;">${r.reqQty}</td><td style="text-align:center; vertical-align:top;"><span class="badge ${bClass}"><span class="status-dot"></span> ${sText}</span></td>${actionBtns}</tr>`;
+        return `<tr><td style="color:var(--text-secondary); font-size:13px; vertical-align:top;">${r.createdAt?r.createdAt.toDate().toLocaleDateString(currentLang==='th'?'th-TH':'en-GB'):''}</td><td style="vertical-align:top;">${r.requestedBy.split('@')[0]}</td><td style="font-weight:500; vertical-align:top;">[${r.itemCode}] ${r.itemName}</td><td style="text-align:right; font-weight:500; vertical-align:top;">${r.reqQty}</td><td style="text-align:center; vertical-align:top;"><span class="badge ${bClass}"><span class="status-dot"></span> ${sText}</span></td><td style="vertical-align:top; font-size:13px; ${noteColor}">${noteText}</td>${actionBtns}</tr>`;
     }).join('');
 }
 
-function renderReportsTable() {
+function renderReportsTable(t) {
     const summary = {};
-    requestsData.filter(r => r.status === 'approved').forEach(r => {
+    
+    requestsData.forEach(r => {
         if(!summary[r.itemCode]) summary[r.itemCode] = { name: r.itemName, count: 0, total: 0 };
-        summary[r.itemCode].count++; summary[r.itemCode].total += r.reqQty;
+        if(r.status === 'approved') {
+            summary[r.itemCode].count++; 
+            summary[r.itemCode].total += r.reqQty;
+        }
     });
-    const keys = Object.keys(summary);
-    if(keys.length === 0) return document.getElementById('reports-list').innerHTML = `<tr><td colspan="4" style="text-align:center; padding:40px; color:var(--text-tertiary);">ยังไม่มีข้อมูลสรุปผล</td></tr>`;
+
+    const keys = Object.keys(summary).filter(k => summary[k].total > 0);
+    if(keys.length === 0) return document.getElementById('reports-list').innerHTML = `<tr><td colspan="4" style="text-align:center; padding:40px; color:var(--text-tertiary);">${t.tableEmptyRep}</td></tr>`;
     
     document.getElementById('reports-list').innerHTML = keys.map(k => `<tr><td style="color:var(--text-tertiary);">${k}</td><td style="font-weight:500;">${summary[k].name}</td><td style="text-align:right;">${summary[k].count}</td><td style="text-align:right; font-weight:600; color:var(--brand-primary);">${summary[k].total}</td></tr>`).join('');
 }
 
 function renderUsersTable(t) {
+    if(usersData.length === 0) return document.getElementById('users-list').innerHTML = `<tr><td colspan="4" style="text-align:center; padding: 40px; color: var(--text-tertiary);">${t.tableEmptyUser}</td></tr>`;
     document.getElementById('users-list').innerHTML = usersData.map(u => {
-        const roleHtml = u.role === 'admin' ? `<span style="background:#e0e7ff; color:#4338ca; padding:4px 8px; border-radius:12px; font-size:12px; font-weight:500;"><i class="fas fa-shield-alt"></i> ${t.roleAdmin}</span>` : `<span style="background:#f1f5f9; color:#475569; padding:4px 8px; border-radius:12px; font-size:12px; font-weight:500;"><i class="fas fa-user"></i> ${t.roleUser}</span>`;
+        const name = `${u.firstName || ''} ${u.lastName || ''}`.trim() || 'ไม่ระบุ';
+        const roleBadge = u.role === 'admin' ? `<span style="background:#e0e7ff; color:#4338ca; padding:4px 8px; border-radius:12px; font-size:12px; font-weight:500;"><i class="fas fa-shield-alt"></i> ${t.roleAdmin}</span>` : `<span style="background:#f1f5f9; color:#475569; padding:4px 8px; border-radius:12px; font-size:12px; font-weight:500;"><i class="fas fa-user"></i> ${t.roleUser}</span>`;
         const actionBtn = `<td style="text-align:right;"><button onclick="editUser('${u.uid}')" class="btn-primary" style="background:#FF9500; display:inline-flex; padding:6px 10px; margin-right:4px;" ${u.email.includes('admin')&&u.uid!==currentUser.uid?'disabled':''}><i class="fas fa-user-edit"></i></button><button onclick="deleteUser('${u.uid}', '${u.email}')" class="btn-primary" style="background:#FF3B30; display:inline-flex; padding:6px 10px;" ${u.email.includes('admin')?'disabled':''}><i class="fas fa-trash"></i></button></td>`;
-        return `<tr><td style="font-weight:500;">${u.email}</td><td><div style="font-weight:500;">${u.name||'ไม่ระบุ'}</div><div style="font-size:11px;color:var(--text-secondary);">${u.department||''}</div></td><td>${roleHtml}</td>${actionBtn}</tr>`;
+        return `<tr><td style="font-weight:500;">${u.email}</td><td><div style="font-weight:500;">${name}</div><div style="font-size:11px;color:var(--text-secondary);">${u.department||''}</div></td><td>${roleBadge}</td>${actionBtn}</tr>`;
     }).join('');
 }
 
@@ -507,7 +591,7 @@ function renderAuditTable(t) {
     document.getElementById('audit-list').innerHTML = auditData.map(a => {
         const dateStr = a.createdAt ? a.createdAt.toDate().toLocaleString(currentLang==='th'?'th-TH':'en-GB') : '';
         const actionText = t.auditAction[a.action] || a.action;
-        let bClass = 'badge-success'; // import, adjust_increase
+        let bClass = 'badge-success'; 
         if(['issue', 'adjust_decrease'].includes(a.action)) bClass = 'badge-warning';
         if(a.action === 'delete') bClass = 'badge-danger';
         return `<tr><td style="font-size:13px; color:var(--text-secondary);">${dateStr}</td><td><span class="badge ${bClass}">${actionText}</span></td><td style="font-weight:500;">[${a.itemCode}] ${a.itemName}</td><td style="text-align:right; font-weight:600;">${a.qty}</td><td style="font-size:13px;">${a.byUser}</td></tr>`;

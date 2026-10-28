@@ -53,6 +53,9 @@
 
     <!-- APP VIEW -->
     <div id="app-view">
+        <!-- MOBILE OVERLAY -->
+        <div id="mobile-overlay" onclick="closeSidebar()"></div>
+
         <aside class="sidebar">
             <div class="sidebar-brand">
                 <i class="fas fa-box-open brand-icon"></i>
@@ -69,7 +72,10 @@
 
         <main class="main-content">
             <header class="topbar">
-                <h3 class="topbar-title" id="page-title" data-lang="topbarTitle">FaceStock Portal</h3>
+                <div class="topbar-left">
+                    <button class="hamburger-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+                    <h3 class="topbar-title" id="page-title" data-lang="topbarTitle">FaceStock Portal</h3>
+                </div>
                 <div class="header-actions">
                     <!-- Notifications -->
                     <div class="header-notifications">
@@ -198,9 +204,15 @@
                                 <label data-lang="profEmail">อีเมล (แก้ไขไม่ได้)</label>
                                 <input type="text" id="prof-email" disabled style="background: #F2F2F7; cursor:not-allowed;">
                             </div>
-                            <div class="form-group" style="margin-bottom: 16px;">
-                                <label data-lang="profName">ชื่อ-สกุล (Full Name)</label>
-                                <input type="text" id="prof-name" required>
+                            <div class="form-grid" style="margin-bottom: 16px;">
+                                <div class="form-group">
+                                    <label data-lang="profFirstName">ชื่อ (First Name)</label>
+                                    <input type="text" id="prof-firstname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label data-lang="profLastName">นามสกุล (Last Name)</label>
+                                    <input type="text" id="prof-lastname" required>
+                                </div>
                             </div>
                             <div class="form-group" style="margin-bottom: 16px;">
                                 <label>ตำแหน่ง</label>
@@ -211,7 +223,7 @@
                             </div>
                             <div class="form-group" style="margin-bottom: 16px;">
                                 <label data-lang="profDept">แผนก</label>
-                                <input type="text" id="prof-dept" disabled style="background: #F2F2F7; cursor: not-allowed;">
+                                <input type="text" id="prof-dept" required>
                             </div>
                             <div class="form-group" style="margin-bottom: 16px;">
                                 <label data-lang="profPhone">เบอร์โทรศัพท์</label>
@@ -254,7 +266,15 @@
                         </div>
                         <div class="form-group"><label>จำนวนสินค้า</label><input type="number" id="pd-qty" min="0" required></div>
                         <div class="form-group"><label>หน่วยนับ</label>
-                            <select id="pd-unit" required><option value="ชิ้น">ชิ้น</option><option value="ขวด">ขวด</option><option value="หลอด">หลอด</option><option value="กระปุก">กระปุก</option><option value="กล่อง">กล่อง</option></select>
+                            <select id="pd-unit" required>
+                                <option value="ชิ้น">ชิ้น</option>
+                                <option value="ขวด">ขวด</option>
+                                <option value="หลอด">หลอด</option>
+                                <option value="กระปุก">กระปุก</option>
+                                <option value="กล่อง">กล่อง</option>
+                                <option value="ก้อน">ก้อน</option>
+                                <option value="แผ่น">แผ่น</option>
+                            </select>
                         </div>
                         <div class="form-group"><label>วันที่นำเข้า</label><input type="date" id="pd-import-date" required></div>
                         <div class="form-group"><label>วันหมดอายุ</label><input type="date" id="pd-expiry-date" required></div>
@@ -290,10 +310,19 @@
                             </select>
                         </div>
                         <div class="form-group"><label>แก้ไขยอดคงเหลือ</label><input type="number" id="edit-pd-qty" min="0" required></div>
-                        <!-- เพิ่มฟิลด์หน่วยนับใน Modal แก้ไข -->
                         <div class="form-group"><label>หน่วยนับ</label>
-                            <select id="edit-pd-unit" required><option value="ชิ้น">ชิ้น</option><option value="ขวด">ขวด</option><option value="หลอด">หลอด</option><option value="กระปุก">กระปุก</option><option value="กล่อง">กล่อง</option></select>
+                            <select id="edit-pd-unit" required>
+                                <option value="ชิ้น">ชิ้น</option>
+                                <option value="ขวด">ขวด</option>
+                                <option value="หลอด">หลอด</option>
+                                <option value="กระปุก">กระปุก</option>
+                                <option value="กล่อง">กล่อง</option>
+                                <option value="ก้อน">ก้อน</option>
+                                <option value="แผ่น">แผ่น</option>
+                            </select>
                         </div>
+                        <div class="form-group"><label>วันที่นำเข้า</label><input type="date" id="edit-pd-import-date" required></div>
+                        <div class="form-group"><label>วันหมดอายุ</label><input type="date" id="edit-pd-expiry-date" required></div>
                         <div class="form-group full"><label>แก้จุดแจ้งเตือน</label><input type="number" id="edit-pd-alert" min="0" required></div>
                     </div>
                 </div>
@@ -317,11 +346,11 @@
                     <div class="form-grid">
                         <div class="form-group full">
                             <label>เลือกรายการ</label>
-                            <select id="req-item" required><option value="" disabled selected>กำลังโหลดข้อมูล...</option></select>
+                            <select id="req-item" required onchange="validateRequestQty()"><option value="" disabled selected>กำลังโหลดข้อมูล...</option></select>
                         </div>
                         <div class="form-group">
                             <label>จำนวน</label>
-                            <input type="number" id="req-qty" min="1" value="1" required>
+                            <input type="number" id="req-qty" min="1" value="1" required oninput="validateRequestQty()">
                         </div>
                         <div class="form-group">
                             <label>หน่วยนับ</label>
@@ -353,7 +382,8 @@
                     <div class="form-grid">
                         <div class="form-group full"><label>อีเมล (Email)</label><input type="email" id="new-user-email" placeholder="name@facestock.com" required></div>
                         <div class="form-group full"><label>รหัสผ่านชั่วคราว</label><input type="text" id="new-user-password" placeholder="อย่างน้อย 6 ตัวอักษร" required minlength="6"></div>
-                        <div class="form-group full"><label>ชื่อ-สกุล (Full Name)</label><input type="text" id="new-user-name" required></div>
+                        <div class="form-group"><label>ชื่อ (First Name)</label><input type="text" id="new-user-firstname" required></div>
+                        <div class="form-group"><label>นามสกุล (Last Name)</label><input type="text" id="new-user-lastname" required></div>
                         <div class="form-group full">
                             <label>ตำแหน่ง</label>
                             <select id="new-user-role" required>
@@ -388,7 +418,8 @@
                 <div class="modal-body">
                     <div class="form-grid">
                         <div class="form-group full"><label>อีเมล (Email)</label><input type="email" id="edit-user-email" disabled style="background-color: #F2F2F7; cursor: not-allowed;"></div>
-                        <div class="form-group full"><label>ชื่อ-สกุล (Full Name)</label><input type="text" id="edit-user-name" required></div>
+                        <div class="form-group"><label>ชื่อ (First Name)</label><input type="text" id="edit-user-firstname" required></div>
+                        <div class="form-group"><label>นามสกุล (Last Name)</label><input type="text" id="edit-user-lastname" required></div>
                         <div class="form-group full">
                             <label>ตำแหน่ง</label>
                             <select id="edit-user-role" required>
