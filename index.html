@@ -229,11 +229,41 @@
                                 <label data-lang="profPhone">เบอร์โทรศัพท์</label>
                                 <input type="tel" id="prof-phone" placeholder="08X-XXX-XXXX">
                             </div>
-                            <div class="form-group" style="margin-bottom: 32px;">
-                                <label data-lang="profAddress">ที่อยู่พนักงาน</label>
-                                <textarea id="prof-address" rows="3" placeholder="ระบุที่อยู่..." style="width: 100%; padding: 12px 14px; border: 1px solid var(--border-light); border-radius: 10px; font-family: 'Kanit', sans-serif; font-size: 14px; outline: none; background: #F2F2F7; color: var(--text-main); transition: all 0.2s ease; resize: vertical;" onfocus="this.style.background='#FFFFFF'; this.style.borderColor='var(--brand-primary)';" onblur="this.style.background='#F2F2F7'; this.style.borderColor='var(--border-light)';"></textarea>
+                            <!-- Address Fields -->
+                            <div style="margin-top: 24px; margin-bottom: 16px;">
+                                <label style="font-size: 14px; font-weight: 600; color: var(--text-main); margin-bottom: 8px; display: block;" data-lang="profAddressHeader">ที่อยู่พนักงาน (Address)</label>
+                                <div class="form-grid" style="gap: 12px;">
+                                    <div class="form-group">
+                                        <label data-lang="profHouseNo">เลขที่</label>
+                                        <input type="text" id="prof-houseno">
+                                    </div>
+                                    <div class="form-group">
+                                        <label data-lang="profSoi">ซอย</label>
+                                        <input type="text" id="prof-soi">
+                                    </div>
+                                    <div class="form-group full">
+                                        <label data-lang="profRoad">ถนน</label>
+                                        <input type="text" id="prof-road">
+                                    </div>
+                                    <div class="form-group">
+                                        <label data-lang="profSubDistrict">ตำบล/แขวง</label>
+                                        <input type="text" id="prof-subdistrict" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label data-lang="profDistrict">อำเภอ/เขต</label>
+                                        <input type="text" id="prof-district" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label data-lang="profProvince">จังหวัด</label>
+                                        <input type="text" id="prof-province" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label data-lang="profZipCode">รหัสไปรษณีย์</label>
+                                        <input type="text" id="prof-zipcode" required>
+                                    </div>
+                                </div>
                             </div>
-                            <div style="display: flex; gap: 12px; justify-content: space-between;">
+                            <div style="display: flex; gap: 12px; justify-content: space-between; margin-top: 32px;">
                                 <button type="button" class="btn-outline" style="width: 48%; justify-content: center;" onclick="switchTab('sec-inventory')" data-lang="btnCancel">ยกเลิก</button>
                                 <button type="submit" class="btn-primary" style="width: 48%; justify-content: center;" data-lang="btnSaveProf">บันทึกการเปลี่ยนแปลง</button>
                             </div>
@@ -393,10 +423,17 @@
                         </div>
                         <div class="form-group full"><label>แผนก (Department)</label><input type="text" id="new-user-dept" value="ผลิตภัณฑ์ดูแลผิวหน้า" required></div>
                         <div class="form-group full"><label>เบอร์โทรศัพท์</label><input type="tel" id="new-user-phone" placeholder="08X-XXX-XXXX"></div>
-                        <div class="form-group full">
-                            <label>ที่อยู่พนักงาน</label>
-                            <textarea id="new-user-address" rows="3" placeholder="ระบุที่อยู่..." style="width: 100%; padding: 12px 14px; border: 1px solid var(--border-light); border-radius: 10px; font-family: 'Kanit', sans-serif; font-size: 14px; outline: none; background: #F2F2F7; color: var(--text-main); transition: all 0.2s ease; resize: vertical;" onfocus="this.style.background='#FFFFFF'; this.style.borderColor='var(--brand-primary)';" onblur="this.style.background='#F2F2F7'; this.style.borderColor='var(--border-light)';"></textarea>
+                        
+                        <div class="form-group full" style="margin-top: 16px; margin-bottom: 0;">
+                            <label style="font-size: 14px; font-weight: 600; color: var(--text-main); margin-bottom: 8px; display: block;" data-lang="profAddressHeader">ที่อยู่พนักงาน (Address)</label>
                         </div>
+                        <div class="form-group"><label data-lang="profHouseNo">เลขที่</label><input type="text" id="new-user-houseno"></div>
+                        <div class="form-group"><label data-lang="profSoi">ซอย</label><input type="text" id="new-user-soi"></div>
+                        <div class="form-group full"><label data-lang="profRoad">ถนน</label><input type="text" id="new-user-road"></div>
+                        <div class="form-group"><label data-lang="profSubDistrict">ตำบล/แขวง</label><input type="text" id="new-user-subdistrict" required></div>
+                        <div class="form-group"><label data-lang="profDistrict">อำเภอ/เขต</label><input type="text" id="new-user-district" required></div>
+                        <div class="form-group"><label data-lang="profProvince">จังหวัด</label><input type="text" id="new-user-province" required></div>
+                        <div class="form-group"><label data-lang="profZipCode">รหัสไปรษณีย์</label><input type="text" id="new-user-zipcode" required></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -429,10 +466,17 @@
                         </div>
                         <div class="form-group full"><label>แผนก (Department)</label><input type="text" id="edit-user-dept" required></div>
                         <div class="form-group full"><label>เบอร์โทรศัพท์</label><input type="tel" id="edit-user-phone" placeholder="08X-XXX-XXXX"></div>
-                        <div class="form-group full">
-                            <label>ที่อยู่พนักงาน</label>
-                            <textarea id="edit-user-address" rows="3" placeholder="ระบุที่อยู่..." style="width: 100%; padding: 12px 14px; border: 1px solid var(--border-light); border-radius: 10px; font-family: 'Kanit', sans-serif; font-size: 14px; outline: none; background: #F2F2F7; color: var(--text-main); transition: all 0.2s ease; resize: vertical;" onfocus="this.style.background='#FFFFFF'; this.style.borderColor='var(--brand-primary)';" onblur="this.style.background='#F2F2F7'; this.style.borderColor='var(--border-light)';"></textarea>
+                        
+                        <div class="form-group full" style="margin-top: 16px; margin-bottom: 0;">
+                            <label style="font-size: 14px; font-weight: 600; color: var(--text-main); margin-bottom: 8px; display: block;" data-lang="profAddressHeader">ที่อยู่พนักงาน (Address)</label>
                         </div>
+                        <div class="form-group"><label data-lang="profHouseNo">เลขที่</label><input type="text" id="edit-user-houseno"></div>
+                        <div class="form-group"><label data-lang="profSoi">ซอย</label><input type="text" id="edit-user-soi"></div>
+                        <div class="form-group full"><label data-lang="profRoad">ถนน</label><input type="text" id="edit-user-road"></div>
+                        <div class="form-group"><label data-lang="profSubDistrict">ตำบล/แขวง</label><input type="text" id="edit-user-subdistrict" required></div>
+                        <div class="form-group"><label data-lang="profDistrict">อำเภอ/เขต</label><input type="text" id="edit-user-district" required></div>
+                        <div class="form-group"><label data-lang="profProvince">จังหวัด</label><input type="text" id="edit-user-province" required></div>
+                        <div class="form-group"><label data-lang="profZipCode">รหัสไปรษณีย์</label><input type="text" id="edit-user-zipcode" required></div>
                     </div>
                 </div>
                 <div class="modal-footer">

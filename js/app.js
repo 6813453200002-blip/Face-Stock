@@ -49,7 +49,9 @@ const translations = {
         reportTitle: "สรุปการเบิกจ่าย", repThCount: "จำนวนครั้ง", repThTotal: "ปริมาณเบิกออกรวม",
         userTitle: "ผู้ใช้งานระบบ", userThEmail: "อีเมล", userThName: "ชื่อ-สกุล", userThRole: "ระดับสิทธิ์", userThAction: "จัดการ", btnAddUser: "เพิ่มผู้ใช้",
         auditTitle: "ประวัติการเคลื่อนไหว (Audit Trail)", auditThDate: "วันที่ทำรายการ", auditThAction: "การกระทำ", auditThItem: "รายการสินค้า", auditThQty: "จำนวน", auditThUser: "ผู้ดำเนินการ",
-        profileTitle: "ข้อมูลบัญชี", profEmail: "อีเมล (แก้ไขไม่ได้)", profFirstName: "ชื่อ (First Name)", profLastName: "นามสกุล (Last Name)", profDept: "แผนก", profPhone: "เบอร์โทรศัพท์", profAddress: "ที่อยู่", btnSaveProf: "บันทึกการเปลี่ยนแปลง",
+        profileTitle: "ข้อมูลบัญชี", profEmail: "อีเมล (แก้ไขไม่ได้)", profFirstName: "ชื่อ (First Name)", profLastName: "นามสกุล (Last Name)", profDept: "แผนก", profPhone: "เบอร์โทรศัพท์", 
+        profAddressHeader: "ที่อยู่พนักงาน (Address)", profHouseNo: "เลขที่", profSoi: "ซอย", profRoad: "ถนน", profSubDistrict: "ตำบล/แขวง", profDistrict: "อำเภอ/เขต", profProvince: "จังหวัด", profZipCode: "รหัสไปรษณีย์",
+        btnSaveProf: "บันทึกการเปลี่ยนแปลง",
         roleAdmin: "ผู้ดูแลระบบ", roleUser: "พนักงานทั่วไป",
         widgetAdmin1: "สินค้าทั้งหมด (FAC)", widgetAdmin2: "สินค้าใกล้หมด", widgetAdmin3: "สินค้าหมดสต๊อก",
         widgetUser1: "สินค้าพร้อมเบิก", widgetUser2: "รออนุมัติ", widgetUser3: "อนุมัติแล้ว",
@@ -72,7 +74,9 @@ const translations = {
         reportTitle: "Summary Report", repThCount: "Request Count", repThTotal: "Total Qty Issued",
         userTitle: "System Users", userThEmail: "Email", userThName: "Name", userThRole: "Role", userThAction: "Action", btnAddUser: "Add User",
         auditTitle: "Audit Trail", auditThDate: "Date", auditThAction: "Action", auditThItem: "Item", auditThQty: "Qty", auditThUser: "Done By",
-        profileTitle: "Account Info", profEmail: "Email (Read-only)", profFirstName: "First Name", profLastName: "Last Name", profDept: "Department", profPhone: "Phone", profAddress: "Address", btnSaveProf: "Save Changes",
+        profileTitle: "Account Info", profEmail: "Email (Read-only)", profFirstName: "First Name", profLastName: "Last Name", profDept: "Department", profPhone: "Phone", 
+        profAddressHeader: "Address", profHouseNo: "House No.", profSoi: "Soi", profRoad: "Road", profSubDistrict: "Sub-district", profDistrict: "District", profProvince: "Province", profZipCode: "Zip Code",
+        btnSaveProf: "Save Changes",
         roleAdmin: "Admin", roleUser: "Staff",
         widgetAdmin1: "Total Items (FAC)", widgetAdmin2: "Low Stock", widgetAdmin3: "Out of Stock",
         widgetUser1: "Available Items", widgetUser2: "Pending", widgetUser3: "Approved",
@@ -420,7 +424,13 @@ function loadProfileData() {
     document.getElementById('prof-role').value = currentUser.role || 'user';
     document.getElementById('prof-dept').value = currentUser.department || '';
     document.getElementById('prof-phone').value = currentUser.phone || '';
-    document.getElementById('prof-address').value = currentUser.address || '';
+    document.getElementById('prof-houseno').value = currentUser.houseNo || '';
+    document.getElementById('prof-soi').value = currentUser.soi || '';
+    document.getElementById('prof-road').value = currentUser.road || '';
+    document.getElementById('prof-subdistrict').value = currentUser.subDistrict || '';
+    document.getElementById('prof-district').value = currentUser.district || '';
+    document.getElementById('prof-province').value = currentUser.province || '';
+    document.getElementById('prof-zipcode').value = currentUser.zipCode || '';
 }
 
 function saveProfile() {
@@ -429,7 +439,13 @@ function saveProfile() {
         lastName: document.getElementById('prof-lastname').value,
         department: document.getElementById('prof-dept').value,
         phone: document.getElementById('prof-phone').value, 
-        address: document.getElementById('prof-address').value 
+        houseNo: document.getElementById('prof-houseno').value,
+        soi: document.getElementById('prof-soi').value,
+        road: document.getElementById('prof-road').value,
+        subDistrict: document.getElementById('prof-subdistrict').value,
+        district: document.getElementById('prof-district').value,
+        province: document.getElementById('prof-province').value,
+        zipCode: document.getElementById('prof-zipcode').value
     };
     refs.users.doc(currentUser.uid).update(updates).then(() => {
         Object.assign(currentUser, updates); updateUI(); Swal.fire('สำเร็จ', 'บันทึกข้อมูลส่วนตัวเรียบร้อย', 'success');
@@ -444,7 +460,9 @@ function submitNewUser() {
     const docData = {
         email, firstName: document.getElementById('new-user-firstname').value, lastName: document.getElementById('new-user-lastname').value, role: document.getElementById('new-user-role').value,
         department: document.getElementById('new-user-dept').value, phone: document.getElementById('new-user-phone').value, 
-        address: document.getElementById('new-user-address').value, createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        houseNo: document.getElementById('new-user-houseno').value, soi: document.getElementById('new-user-soi').value, road: document.getElementById('new-user-road').value,
+        subDistrict: document.getElementById('new-user-subdistrict').value, district: document.getElementById('new-user-district').value, province: document.getElementById('new-user-province').value, zipCode: document.getElementById('new-user-zipcode').value,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
     };
     Swal.fire({ title: 'กำลังสร้าง...', didOpen: () => Swal.showLoading() });
     secondaryAuth.createUserWithEmailAndPassword(email, password).then(cred => {
@@ -458,7 +476,14 @@ function editUser(uid) {
     currentEditUserId = uid;
     document.getElementById('edit-user-email').value = user.email; document.getElementById('edit-user-firstname').value = user.firstName || ''; document.getElementById('edit-user-lastname').value = user.lastName || '';
     document.getElementById('edit-user-role').value = user.role; document.getElementById('edit-user-dept').value = user.department || '';
-    document.getElementById('edit-user-phone').value = user.phone || ''; document.getElementById('edit-user-address').value = user.address || '';
+    document.getElementById('edit-user-phone').value = user.phone || ''; 
+    document.getElementById('edit-user-houseno').value = user.houseNo || '';
+    document.getElementById('edit-user-soi').value = user.soi || '';
+    document.getElementById('edit-user-road').value = user.road || '';
+    document.getElementById('edit-user-subdistrict').value = user.subDistrict || '';
+    document.getElementById('edit-user-district').value = user.district || '';
+    document.getElementById('edit-user-province').value = user.province || '';
+    document.getElementById('edit-user-zipcode').value = user.zipCode || '';
     document.getElementById('editUserModal').style.display = 'flex';
 }
 function closeEditUserModal() { document.getElementById('editUserModal').style.display = 'none'; document.getElementById('editUserForm').reset(); currentEditUserId = null; }
@@ -467,7 +492,9 @@ function submitEditUser() {
     if(!currentEditUserId) return;
     refs.users.doc(currentEditUserId).update({
         firstName: document.getElementById('edit-user-firstname').value, lastName: document.getElementById('edit-user-lastname').value, role: document.getElementById('edit-user-role').value,
-        department: document.getElementById('edit-user-dept').value, phone: document.getElementById('edit-user-phone').value, address: document.getElementById('edit-user-address').value
+        department: document.getElementById('edit-user-dept').value, phone: document.getElementById('edit-user-phone').value,
+        houseNo: document.getElementById('edit-user-houseno').value, soi: document.getElementById('edit-user-soi').value, road: document.getElementById('edit-user-road').value,
+        subDistrict: document.getElementById('edit-user-subdistrict').value, district: document.getElementById('edit-user-district').value, province: document.getElementById('edit-user-province').value, zipCode: document.getElementById('edit-user-zipcode').value
     }).then(() => { closeEditUserModal(); Swal.fire('สำเร็จ', 'อัปเดตเรียบร้อย', 'success'); });
 }
 
